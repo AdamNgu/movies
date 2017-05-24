@@ -1,0 +1,10 @@
+header {
+  height: 100px;
+}
+
+header h1 {
+  float: left;
+}
+header button {
+  float: right;
+}

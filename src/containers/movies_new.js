@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Modal from 'react-modal';
+
 import { addMovie } from '../actions/index';
+
+const modalStyle = {
+  content: {
+    width: "300px",
+    height: "200px",
+    margin: "auto auto"
+  }
+}
 
 class MoviesNew extends Component {
   constructor(props) {
@@ -13,7 +23,12 @@ class MoviesNew extends Component {
 
   render() {
     return(
-      <div>
+      <Modal
+        isOpen={this.props.isOpen}
+        contentLabel="New Movie"
+        onRequestClose={this.props.close}
+        style={modalStyle}
+        >
         <form onSubmit={this.addNewMovie}>
           <input
             type="text"
@@ -22,7 +37,7 @@ class MoviesNew extends Component {
           />
           <button type="submit">Add Movie</button>
         </form>
-      </div>
+      </Modal>
     );
   }
 
@@ -33,7 +48,8 @@ class MoviesNew extends Component {
 
   addNewMovie(event) {
     event.preventDefault();
-    this.props.addMovie(this.state.title)
+    this.props.addMovie(this.state.title);
+    this.props.close(); // flows up to app.js to close modal
   }
 }
 
