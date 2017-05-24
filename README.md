@@ -26,3 +26,4 @@ MVP completion
 
 [ ] Mobile-friendly
 [ ] Remove photos
+[ ] Use modals
