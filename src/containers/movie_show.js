@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { deleteMovie } from '../actions/index';
+
 import Modal from 'react-modal';
 
 
@@ -26,10 +28,25 @@ class MovieShow extends Component {
   }
 
   renderMovie() {
+    const activeMovie = this.props.activeMovie
+
     if(this.props.activeMovie){
-      return(<div>{this.props.activeMovie.title}</div>);
+      return(
+        <div>
+          {activeMovie.title}
+          <button
+            onClick={() => this.deleteMovie(activeMovie)}>
+            Delete this movie</button>
+        </div>
+      );
     }
   }
+
+  deleteMovie(movie) {
+    this.props.deleteMovie(movie);
+    this.props.close();
+  }
+
 }
 
 function mapStateToProps(state) {
@@ -38,4 +55,8 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, null)(MovieShow);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ deleteMovie }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieShow);

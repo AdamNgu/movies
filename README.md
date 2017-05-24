@@ -17,14 +17,13 @@ MVP completion
 [X] Add film
 [ ] View page for individual film
 [ ] Delete film
-[ ] Edit film title
 [ ] Save state upon exit
 [ ] Add photos to film
 [ ] Use first photo added in film list display
 [ ] beautify CSS
 
 #### Bonus features to be added
-
+[ ] Edit film title
 [ ] Mobile-friendly
 [ ] Remove photos
 [ ] Use modals

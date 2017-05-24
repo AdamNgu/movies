@@ -19,6 +19,9 @@ const movies = (state = [], action) => {
         movie(undefined, action)
       ]
 
+    case 'DELETE_MOVIE':
+      return state.filter(movie => movie.id !== action.id)
+
     default:
       return state
   }

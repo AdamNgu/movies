@@ -13,3 +13,10 @@ export function selectMovie(movie) {
     payload: movie
   }
 }
+
+export function deleteMovie(movie) {
+  return {
+    type: 'DELETE_MOVIE',
+    id: movie.id
+  }
+}
