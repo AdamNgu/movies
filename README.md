@@ -13,14 +13,15 @@ MVP completion
 #### Steps
 
 
-[ ] Display list of films
-[ ] Add film
-[ ] Delete film
+[X] Display list of films
+[X] Add film
 [ ] View page for individual film
+[ ] Delete film
 [ ] Edit film title
 [ ] Save state upon exit
 [ ] Add photos to film
 [ ] Use first photo added in film list display
+[ ] beautify CSS
 
 #### Bonus features to be added
 

@@ -16,7 +16,6 @@ const modalStyle = {
 class MoviesNew extends Component {
   constructor(props) {
     super(props);
-    this.state = { title: '' };
     this.addNewMovie = this.addNewMovie.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
   }
@@ -43,6 +42,7 @@ class MoviesNew extends Component {
 
   // TODO: use a constantly updated state to create dynamic warnings
   onInputChange(event) {
+    console.log(event);
     this.setState({ title: event.target.value });
   }
 

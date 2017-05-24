@@ -3,17 +3,20 @@ import React, { Component } from 'react';
 
 import MoviesNew from '../containers/movies_new';
 import MoviesIndex from '../containers/movies_index';
-
+import MovieShow from '../containers/movie_show'
 
 export default class App extends React.Component {
   constructor() {
     super();
     // TODO: incorporate modal open/close toggle in redux
     this.state = {
-      newMovieModalisOpen: false
+      newMovieModalisOpen: false,
+      // showMovieModalisOpen: false
     }
     this.openNewMovieModal = this.openNewMovieModal.bind(this);
     this.closeNewMovieModal = this.closeNewMovieModal.bind(this);
+    this.openMovieShowModal = this.openMovieShowModal.bind(this);
+    this.closeMovieShowModal = this.closeMovieShowModal.bind(this);
   }
 
   openNewMovieModal() {
@@ -22,6 +25,14 @@ export default class App extends React.Component {
 
   closeNewMovieModal() {
     this.setState({newMovieModalisOpen: false});
+  }
+
+  openMovieShowModal() {
+    this.setState({showMovieModalisOpen: true});
+  }
+
+  closeMovieShowModal() {
+    this.setState({showMovieModalisOpen: false});
   }
 
   render() {
@@ -35,8 +46,15 @@ export default class App extends React.Component {
           isOpen={this.state.newMovieModalisOpen}
           close={this.closeNewMovieModal}
         />
-        <MoviesIndex/>
+        <MoviesIndex openMovieShow={this.openMovieShowModal}/>
+        <MovieShow
+          isOpen={this.state.showMovieModalisOpen}
+          close={this.closeMovieShowModal}
+        />
       </div>
     );
+
+
+
   }
 }
