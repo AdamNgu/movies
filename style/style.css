@@ -8,3 +8,27 @@ header h1 {
 header button {
   float: right;
 }
+
+
+/* Movie Show CSS */
+
+.show-movie-header {
+  height: 100px;
+}
+
+.show-movie-header h1 {
+  float: left;
+}
+
+.show-movie-header .controls {
+  float: right;
+}
+
+.imageUpload {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}

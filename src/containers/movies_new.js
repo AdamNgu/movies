@@ -42,7 +42,6 @@ class MoviesNew extends Component {
 
   // TODO: use a constantly updated state to create dynamic warnings
   onInputChange(event) {
-    console.log(event);
     this.setState({ title: event.target.value });
   }
 

@@ -10,15 +10,14 @@ MVP completion
 > npm start
 > browse to localhost:8080
 
-#### Steps
-
+#### Todo list
 
 [X] Display list of films
 [X] Add film
-[ ] View page for individual film
-[ ] Delete film
-[ ] Save state upon exit
-[ ] Add photos to film
+[x] View page for individual film
+[x] Delete film
+[x] Add photos to film
+[ ] State persists locally
 [ ] Use first photo added in film list display
 [ ] beautify CSS
 
@@ -26,4 +25,4 @@ MVP completion
 [ ] Edit film title
 [ ] Mobile-friendly
 [ ] Remove photos
-[ ] Use modals
+[ ] Implement test suite

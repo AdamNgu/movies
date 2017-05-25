@@ -20,3 +20,11 @@ export function deleteMovie(movie) {
     id: movie.id
   }
 }
+
+export function addImage(movie, image) {
+  return {
+    type: 'ADD_IMAGE_TO_MOVIE',
+    id: movie.id,
+    image: image
+  }
+}

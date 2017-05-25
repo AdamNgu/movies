@@ -4,6 +4,13 @@ const movie = (state = {}, action) => {
       return {
         id: action.id,
         title: action.title,
+        images: []
+      }
+
+    case 'ADD_IMAGE_TO_MOVIE':
+      return {
+        ...state,
+        images: [...state.images, action.image]
       }
 
     default:
@@ -21,6 +28,9 @@ const movies = (state = [], action) => {
 
     case 'DELETE_MOVIE':
       return state.filter(movie => movie.id !== action.id)
+
+    case 'ADD_IMAGE_TO_MOVIE':
+      return state.map( (m) => movie(m, action) );
 
     default:
       return state
