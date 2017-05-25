@@ -7,13 +7,6 @@ export function addMovie(title) {
   }
 }
 
-export function selectMovie(movie) {
-  return {
-    type: 'MOVIE_SELECTED',
-    payload: movie
-  }
-}
-
 export function deleteMovie(movie) {
   return {
     type: 'DELETE_MOVIE',
@@ -21,10 +14,10 @@ export function deleteMovie(movie) {
   }
 }
 
-export function addImage(movie, image) {
+export function addImage(movieId, image) {
   return {
     type: 'ADD_IMAGE_TO_MOVIE',
-    id: movie.id,
+    id: movieId,
     image: image
   }
 }

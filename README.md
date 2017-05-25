@@ -25,4 +25,5 @@ MVP completion
 [ ] Edit film title
 [ ] Mobile-friendly
 [ ] Remove photos
+[ ] switch to SASS
 [ ] Implement test suite

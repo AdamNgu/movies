@@ -1,14 +1,25 @@
+/* Main Page CSS */
+
 header {
-  height: 100px;
+  height: 80px;
+  margin-top: 20px;
 }
 
 header h1 {
   float: left;
-}
-header button {
-  float: right;
+  margin-left: 15px;
 }
 
+header .btn {
+  float: right;
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+.movieItem {
+  border: 1px solid black;
+  height: 100px;
+}
 
 /* Movie Show CSS */
 

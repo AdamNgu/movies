@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { selectMovie } from '../actions/index';
 
 class MoviesIndex extends Component {
   constructor() {
@@ -14,9 +13,10 @@ class MoviesIndex extends Component {
       return(
         <div
           className="movieItem"
-          key={movie.id}>
+          key={movie.id}
+          onClick={() => {this.selectMovie(movie)}}
+        >
           Title: {movie.title}
-          <button onClick={() => {this.selectMovie(movie)}}>Click here to select</button>
         </div>
       );
     });
@@ -32,8 +32,7 @@ class MoviesIndex extends Component {
 
   selectMovie(movie) {
     console.log("selectMovie");
-    this.props.selectMovie(movie);
-    this.props.openMovieShow();
+    this.props.selectMovie(movie.id);
   }
 
 }
@@ -44,9 +43,5 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ selectMovie: selectMovie }, dispatch);
-}
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(MoviesIndex);
+export default connect(mapStateToProps, null)(MoviesIndex);

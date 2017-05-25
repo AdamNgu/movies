@@ -28,7 +28,7 @@ class MovieShow extends Component {
   }
 
   renderMovie() {
-    const activeMovie = this.props.activeMovie
+    const activeMovie = this.props.movies[this.props.movieId];
 
     if(activeMovie){
       console.log("render movie is occuring, activemovie below");
@@ -60,8 +60,10 @@ class MovieShow extends Component {
   }
 
   renderImages() {
+    const activeMovie = this.props.movies[this.props.movieId];
+
     console.log("render images");
-    const images = this.props.activeMovie.images;
+    const images = activeMovie.images;
     console.log(images);
     return(images.map((image, index) => {
       console.log("iterating through an image");
@@ -78,27 +80,15 @@ class MovieShow extends Component {
   // TODO: validate that this is actually an image
   handleImageUpload(e) {
     e.preventDefault();
-
-    let reader = new FileReader();
     let image = e.target.files[0];
-    console.log(image);
-
-
-    reader.onloadend = () => {
-      console.log(image);
-      this.props.addImage(this.props.activeMovie, image);
-      // TODO: fix movie_show not rerendering after adding image
-    }
-
-    reader.readAsDataURL(image);
-
+    this.props.addImage(this.props.movieId, image);
   }
 
 }
 
 function mapStateToProps(state) {
   return {
-    activeMovie: state.activeMovie
+    movies: state.movies
   };
 }
 

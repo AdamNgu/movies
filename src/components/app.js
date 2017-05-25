@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Modal from 'react-modal';
 
 import MoviesNew from '../containers/movies_new';
 import MoviesIndex from '../containers/movies_index';
@@ -8,14 +7,14 @@ import MovieShow from '../containers/movie_show'
 export default class App extends React.Component {
   constructor() {
     super();
-    // TODO: incorporate modal open/close toggle in redux
     this.state = {
       newMovieModalisOpen: false,
-      // showMovieModalisOpen: false
+      currentMovieSelected: '',
+      showMovieModalisOpen: false
     }
     this.openNewMovieModal = this.openNewMovieModal.bind(this);
     this.closeNewMovieModal = this.closeNewMovieModal.bind(this);
-    this.openMovieShowModal = this.openMovieShowModal.bind(this);
+    this.selectMovie = this.selectMovie.bind(this);
     this.closeMovieShowModal = this.closeMovieShowModal.bind(this);
   }
 
@@ -27,8 +26,11 @@ export default class App extends React.Component {
     this.setState({newMovieModalisOpen: false});
   }
 
-  openMovieShowModal() {
-    this.setState({showMovieModalisOpen: true});
+  selectMovie(movieId) {
+    this.setState({
+      showMovieModalisOpen: true,
+      currentMovieSelected: movieId
+    });
   }
 
   closeMovieShowModal() {
@@ -40,16 +42,17 @@ export default class App extends React.Component {
       <div>
         <header>
           <h1>Movies</h1>
-          <button onClick={this.openNewMovieModal}>Add a movie</button>
+          <button className="btn btn-default" onClick={this.openNewMovieModal}>Add a movie</button>
         </header>
         <MoviesNew
           isOpen={this.state.newMovieModalisOpen}
           close={this.closeNewMovieModal}
         />
-        <MoviesIndex openMovieShow={this.openMovieShowModal}/>
+        <MoviesIndex selectMovie={this.selectMovie}/>
         <MovieShow
           isOpen={this.state.showMovieModalisOpen}
           close={this.closeMovieShowModal}
+          movieId={this.state.currentMovieSelected}
         />
       </div>
     );
