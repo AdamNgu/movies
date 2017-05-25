@@ -68,7 +68,13 @@ class MovieShow extends Component {
     return(images.map((image, index) => {
       console.log("iterating through an image");
       console.log(image);
-      return(<ImageBadge image={image} key={index}/>);
+      return(
+        <ImageBadge
+          image={image}
+          key={index}
+          width="200px"
+          height="100px"
+        />);
     }));
   }
 

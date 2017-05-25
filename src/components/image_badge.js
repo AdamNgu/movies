@@ -21,8 +21,19 @@ export default class ImageBadge extends Component {
   }
 
   render() {
+    const badgeStyle = {
+      maxWidth: this.props.width,
+      maxHeight: this.props.height,
+      width: "auto",
+      height: "auto"
+    }
+
     return(
-      <img src={this.state.imageURL} />
+      <img
+        src={this.state.imageURL}
+        style={badgeStyle}
+        className={"image-badge"}
+      />
     );
   }
 

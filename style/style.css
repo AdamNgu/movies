@@ -1,3 +1,9 @@
+/* General CSS */
+
+/*.image-badge {
+  ;
+}*/
+
 /* Main Page CSS */
 
 header {
@@ -42,4 +48,8 @@ header .btn {
 	overflow: hidden;
 	position: absolute;
 	z-index: -1;
+}
+
+.images .image-badge {
+  margin-left: 10px;
 }
