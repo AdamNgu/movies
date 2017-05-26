@@ -1,14 +1,17 @@
-# Movie CRUD MVP
+# Movie CRUD
+
+A simple front-end React Redux project that lets a user create a list of movies
+and store images associated with each movie, saving the results to
+local storage for persistence.
 
 Initial package.json based on https://github.com/StephenGrider/ReduxSimpleStarter
-for headache-free development, will be moved to a custom package.json upon
-MVP completion
+for headache-free development.
 
 ### How to run
 
-> npm install
-> npm start
-> browse to localhost:8080
+npm install  
+npm start  
+browse to localhost:8080
 
 #### Todo list
 
@@ -17,13 +20,13 @@ MVP completion
 [x] View page for individual film
 [x] Delete film
 [x] Add photos to film
-[ ] State persists locally
-[ ] Use first photo added in film list display
-[ ] beautify CSS
+[x] State persists locally
+[x] Use first photo added in film list display
 
-#### Bonus features to be added
+#### Features to be added
+[ ] Larger image modal view
 [ ] Edit film title
 [ ] Mobile-friendly
-[ ] Remove photos
+[ ] Add ability to remove photos
 [ ] switch to SASS
 [ ] Implement test suite

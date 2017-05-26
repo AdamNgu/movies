@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import ImageBadge from '../components/image_badge';
+
 class MoviesIndex extends Component {
   constructor() {
     super();
@@ -9,14 +11,22 @@ class MoviesIndex extends Component {
   }
 
   renderIndex() {
-    return this.props.movies.map((movie) => {
+    return this.props.movies.map((movie, arrayIndex) => {
+      const mainBadge = movie.images[0];
       return(
         <div
-          className="movieItem"
-          key={movie.id}
-          onClick={() => {this.selectMovie(movie)}}
+          className="movie-item"
+          key={arrayIndex}
+          onClick={() => {this.selectMovie(arrayIndex)}}
         >
-          Title: {movie.title}
+          <div className="badge-container">
+            <ImageBadge
+              image={mainBadge}
+              width="200px"
+              height="150px"
+            />
+          </div>
+          <h1 className="movie-title">{movie.title}</h1>
         </div>
       );
     });
@@ -30,9 +40,8 @@ class MoviesIndex extends Component {
     );
   }
 
-  selectMovie(movie) {
-    console.log("selectMovie");
-    this.props.selectMovie(movie.id);
+  selectMovie(arrayIndex) {
+    this.props.selectMovie(arrayIndex);
   }
 
 }

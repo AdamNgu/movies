@@ -22,9 +22,27 @@ header .btn {
   font-size: 20px;
 }
 
-.movieItem {
+.movie-item {
   border: 1px solid black;
-  height: 100px;
+  height: 150px;
+}
+
+.movie-item .badge-container {
+  height: 150px;
+  float: left;
+  background-color: black;
+  display: flex;
+  align-items: center;
+}
+
+.movie-item .image-badge {
+  vertical-align : middle;
+}
+
+.movie-item .movie-title {
+  float: right;
+  margin-right: 30px;
+  margin-top: 50px;
 }
 
 /* Movie Show CSS */

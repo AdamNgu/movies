@@ -26,10 +26,10 @@ export default class App extends React.Component {
     this.setState({newMovieModalisOpen: false});
   }
 
-  selectMovie(movieId) {
+  selectMovie(movieIndex) {
     this.setState({
       showMovieModalisOpen: true,
-      currentMovieSelected: movieId
+      currentMovieSelected: movieIndex
     });
   }
 
@@ -52,7 +52,7 @@ export default class App extends React.Component {
         <MovieShow
           isOpen={this.state.showMovieModalisOpen}
           close={this.closeMovieShowModal}
-          movieId={this.state.currentMovieSelected}
+          selectedMovieIndex={this.state.currentMovieSelected}
         />
       </div>
     );
