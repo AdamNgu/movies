@@ -8,6 +8,10 @@ const movie = (state = {}, action) => {
       }
 
     case 'ADD_IMAGE_TO_MOVIE':
+      if(state.id !== action.id){
+        return state
+      }
+
       return {
         ...state,
         images: [...state.images, action.image]
@@ -21,6 +25,7 @@ const movie = (state = {}, action) => {
 const movies = (state = [], action) => {
   switch (action.type) {
     case 'ADD_MOVIE':
+      action.id = state[state.length-1].id + 1
       return [
         ...state,
         movie(undefined, action)

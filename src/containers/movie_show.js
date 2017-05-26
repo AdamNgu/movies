@@ -28,22 +28,22 @@ class MovieShow extends Component {
   }
 
   renderMovie() {
-    const activeMovie = this.props.movies[this.props.movieId];
+    const activeMovie = this.props.movies[this.props.selectedMovieIndex];
 
     if(activeMovie){
-      console.log("render movie is occuring, activemovie below");
-      console.log(activeMovie);
-
       return(
         <div className="show-movie-modal">
           <div className="show-movie-header">
             <h1>{activeMovie.title}</h1>
             <div className="controls">
               <button
-                onClick={() => this.deleteMovie(activeMovie)}>
+                onClick={() => this.deleteMovie(activeMovie)}
+                className="btn"
+                style={ {marginRight: "5px"} }
+              >
                 Delete this movie</button>
               <label>
-                Upload an image
+                <button className="btn">Upload an image</button>
                 <input
                   type="file"
                   name="file"
@@ -53,21 +53,15 @@ class MovieShow extends Component {
               </label>
             </div>
           </div>
-          <div className="images">{this.renderImages()}</div>
+          <div className="images">{this.renderImages(activeMovie)}</div>
         </div>
       );
     }
   }
 
-  renderImages() {
-    const activeMovie = this.props.movies[this.props.movieId];
-
-    console.log("render images");
+  renderImages(activeMovie) {
     const images = activeMovie.images;
-    console.log(images);
     return(images.map((image, index) => {
-      console.log("iterating through an image");
-      console.log(image);
       return(
         <ImageBadge
           image={image}
@@ -87,7 +81,18 @@ class MovieShow extends Component {
   handleImageUpload(e) {
     e.preventDefault();
     let image = e.target.files[0];
-    this.props.addImage(this.props.movieId, image);
+    const activeMovie = this.props.movies[this.props.selectedMovieIndex];
+
+    let reader = new FileReader();
+
+    reader.onloadend = () => {
+      let encodedImage = reader.result;
+      this.props.addImage(activeMovie, encodedImage);
+    }
+
+    reader.readAsDataURL(image);
+
+
   }
 
 }
