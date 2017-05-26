@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import MoviesNew from '../containers/movies_new';
 import MoviesIndex from '../containers/movies_index';
-import MovieShow from '../containers/movie_show'
+import MovieShow from '../containers/movie_show';
 
 export default class App extends React.Component {
   constructor() {
@@ -42,7 +42,12 @@ export default class App extends React.Component {
       <div>
         <header>
           <h1>Movies</h1>
-          <button className="btn btn-default" onClick={this.openNewMovieModal}>Add a movie</button>
+          <button
+            className="btn btn-default"
+            onClick={this.openNewMovieModal}
+          >
+            Add a movie
+          </button>
         </header>
         <MoviesNew
           isOpen={this.state.newMovieModalisOpen}
@@ -56,8 +61,5 @@ export default class App extends React.Component {
         />
       </div>
     );
-
-
-
   }
 }

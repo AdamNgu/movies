@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Modal from 'react-modal';
 
-import ImageBadge from '../components/image_badge'
+import ImageBadge from '../components/image_badge';
 import { deleteMovie, addImage } from '../actions/index';
 
 const modalStyle = {
@@ -12,7 +12,7 @@ const modalStyle = {
     height: "500px",
     margin: "auto auto"
   }
-}
+};
 
 class MovieShow extends Component {
   render() {
