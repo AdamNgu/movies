@@ -5,7 +5,8 @@ and store images associated with each movie, saving the results to
 local storage for persistence.
 
 Initial package.json based on https://github.com/StephenGrider/ReduxSimpleStarter
-for headache-free development.
+for headache-free development. Redux was used to consolidate application state,
+storing images in base64 and saving the results to localstorage using a redux library.
 
 ### How to run
 
