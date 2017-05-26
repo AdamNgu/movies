@@ -9,9 +9,11 @@ for headache-free development.
 
 ### How to run
 
-npm install  
+```
+npm install
 npm start  
 browse to localhost:8080
+```
 
 #### Todo list
 
