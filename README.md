@@ -9,14 +9,18 @@ for headache-free development.
 
 ### How to run
 
-> npm install
-> npm start
-> browse to localhost:8080
+Clone this repo, then go to the directory and run:
+
+```
+$npm install
+$npm start
+```
+Browse to localhost:8080
 
 #### Todo list
 
-[X] Display list of films
-[X] Add film
+[x] Display list of films
+[x] Add film
 [x] View page for individual film
 [x] Delete film
 [x] Add photos to film
