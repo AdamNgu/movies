@@ -14,7 +14,20 @@ const modalStyle = {
   }
 };
 
+const errorStyle = {
+  content: {
+    width: "300px",
+    height: "80px",
+    margin: "auto auto"
+  }
+};
+
 class MovieShow extends Component {
+  constructor(props){
+    super(props);
+    this.state = { error: false }
+  }
+
   render() {
     return(
       <Modal
@@ -54,6 +67,13 @@ class MovieShow extends Component {
             </div>
           </div>
           <div className="images">{this.renderImages(activeMovie)}</div>
+          <Modal
+            isOpen={this.state.error}
+            contentLabel="Error"
+            style={errorStyle}>
+            Incorrect file type uploaded!
+            <button onClick={() => this.setState({error: false}) }>Oops</button>
+          </Modal>
         </div>
       );
     }
@@ -78,10 +98,10 @@ class MovieShow extends Component {
     this.props.close();
   }
 
-  // TODO: validate that this is actually an image
   handleImageUpload(e) {
     e.preventDefault();
-    let image = e.target.files[0];
+    let uploadedFile = e.target.files[0];
+    console.log(uploadedFile);
     const activeMovie = this.props.movies[this.props.selectedMovieIndex];
 
     let reader = new FileReader();
@@ -91,11 +111,14 @@ class MovieShow extends Component {
       this.props.addImage(activeMovie, encodedImage);
     }
 
-    reader.readAsDataURL(image);
-
-
+    if(uploadedFile.type.startsWith("image")) {
+      reader.readAsDataURL(uploadedFile);
+    }
+    else {
+      this.setState({error: true})
+    }
+    e.target.value = '';
   }
-
 }
 
 function mapStateToProps(state) {
