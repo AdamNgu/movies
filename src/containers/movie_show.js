@@ -43,7 +43,7 @@ class MovieShow extends Component {
               >
                 Delete this movie</button>
               <label>
-                <button className="btn">Upload an image</button>
+                Upload an image
                 <input
                   type="file"
                   name="file"
@@ -64,6 +64,7 @@ class MovieShow extends Component {
     return(images.map((image, index) => {
       return(
         <ImageBadge
+          onClick={ () => {window.open(image, '_blank')} }
           image={image}
           key={index}
           width="200px"
