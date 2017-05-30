@@ -26,7 +26,7 @@ class MoviesIndex extends Component {
               height="150px"
             />
           </div>
-          <h1 className="movie-title">{movie.title}</h1>
+          <h2 className="movie-title">{movie.title}</h2>
         </div>
       );
     });

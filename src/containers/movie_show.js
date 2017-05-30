@@ -94,21 +94,18 @@ class MovieShow extends Component {
   }
 
   deleteMovie(movie) {
-    this.props.deleteMovie(movie);
+    this.props.deleteMovie(this.props.selectedMovieIndex);
     this.props.close();
   }
 
   handleImageUpload(e) {
     e.preventDefault();
     let uploadedFile = e.target.files[0];
-    console.log(uploadedFile);
-    const activeMovie = this.props.movies[this.props.selectedMovieIndex];
-
     let reader = new FileReader();
 
     reader.onloadend = () => {
       let encodedImage = reader.result;
-      this.props.addImage(activeMovie, encodedImage);
+      this.props.addImage(this.props.selectedMovieIndex, encodedImage);
     }
 
     if(uploadedFile.type.startsWith("image")) {

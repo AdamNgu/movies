@@ -11,7 +11,8 @@ const enhancer = compose(
   persistState()
 );
 
-const store = createStore(reducers, [], enhancer)
+const store = createStore(reducers, {movies: []}, enhancer);
+// const store = createStore(reducers); // for local testing
 
 ReactDOM.render(
   <Provider store={store}>

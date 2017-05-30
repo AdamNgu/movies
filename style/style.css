@@ -11,7 +11,7 @@ header {
   margin-top: 20px;
 }
 
-header h1 {
+header h2 {
   float: left;
   margin-left: 15px;
 }
@@ -22,8 +22,14 @@ header .btn {
   font-size: 20px;
 }
 
+.movie-item:first-of-type {
+  border-top: 1px solid black;
+}
+
 .movie-item {
-  border: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
   height: 150px;
 }
 

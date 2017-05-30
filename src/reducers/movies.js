@@ -4,44 +4,45 @@ const movie = (state = {}, action) => {
   switch (action.type) {
     case 'ADD_MOVIE':
       return {
-        id: action.id,
         title: action.title,
         images: []
-      }
+      };
 
     case 'ADD_IMAGE_TO_MOVIE':
-      if(state.id !== action.id){
-        return state
-      }
-
       return {
         ...state,
         images: [...state.images, action.image]
-      }
+      };
 
     default:
-      return state
+      return state;
   }
-}
+};
 
 const movies = (state = [], action) => {
   switch (action.type) {
     case 'ADD_MOVIE':
-      action.id = state[state.length-1].id + 1
       return [
         ...state,
         movie(undefined, action)
-      ]
+      ];
 
     case 'DELETE_MOVIE':
-      return state.filter(movie => movie.id !== action.id)
+      let newState = [ ...state];
+      newState.splice(action.movieIndex, 1);
+      return newState;
 
     case 'ADD_IMAGE_TO_MOVIE':
-      return state.map( (m) => movie(m, action) );
+      return state.map( (m, index) => {
+        if(index != action.movieIndex) {
+          action.type = '';
+        }
+        return movie(m, action);
+      } );
 
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default movies
+export default movies;

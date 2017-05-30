@@ -41,7 +41,7 @@ export default class App extends React.Component {
     return (
       <div>
         <header>
-          <h1>Movies</h1>
+          <h2>My Movie Collection</h2>
           <button
             className="btn btn-default"
             onClick={this.openNewMovieModal}

@@ -1,4 +1,3 @@
-let currentMovieId = 0
 export function addMovie(title) {
   return {
     type: 'ADD_MOVIE',
@@ -6,17 +5,17 @@ export function addMovie(title) {
   }
 }
 
-export function deleteMovie(movie) {
+export function deleteMovie(movieIndex) {
   return {
     type: 'DELETE_MOVIE',
-    id: movie.id
+    movieIndex
   }
 }
 
-export function addImage(movie, image) {
+export function addImage(movieIndex, image) {
   return {
     type: 'ADD_IMAGE_TO_MOVIE',
-    id: movie.id,
-    image: image
+    movieIndex,
+    image
   }
 }
