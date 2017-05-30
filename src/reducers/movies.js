@@ -9,6 +9,7 @@ const movie = (state = {}, action) => {
       };
 
     case 'ADD_IMAGE_TO_MOVIE':
+      console.log(state);
       return {
         ...state,
         images: [...state.images, action.image]
@@ -35,9 +36,11 @@ const movies = (state = [], action) => {
     case 'ADD_IMAGE_TO_MOVIE':
       return state.map( (m, index) => {
         if(index != action.movieIndex) {
-          action.type = '';
+          return movie(m, '');
         }
-        return movie(m, action);
+        else {
+          return movie(m, action);
+        }
       } );
 
     default:

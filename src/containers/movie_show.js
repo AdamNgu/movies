@@ -104,6 +104,9 @@ class MovieShow extends Component {
     let reader = new FileReader();
 
     reader.onloadend = () => {
+      console.log("image loaded");
+      console.log(this.props.selectedMovieIndex);
+      console.log(this.props.movies);
       let encodedImage = reader.result;
       this.props.addImage(this.props.selectedMovieIndex, encodedImage);
     }
