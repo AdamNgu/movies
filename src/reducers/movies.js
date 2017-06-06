@@ -1,5 +1,3 @@
-// TODO: eliminate movie.id and replace functionality with array index
-
 const movie = (state = {}, action) => {
   switch (action.type) {
     case 'ADD_MOVIE':
@@ -9,7 +7,6 @@ const movie = (state = {}, action) => {
       };
 
     case 'ADD_IMAGE_TO_MOVIE':
-      console.log(state);
       return {
         ...state,
         images: [...state.images, action.image]

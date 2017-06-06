@@ -28,7 +28,7 @@ class MoviesNew extends Component {
         onRequestClose={this.props.close}
         style={modalStyle}
         >
-        <form onSubmit={this.addNewMovie}>
+        <form onSubmit={this.addNewMovie} className="new-movie-modal">
           <input
             type="text"
             placeholder="Movie Title"

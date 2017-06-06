@@ -34,7 +34,7 @@ class MoviesIndex extends Component {
 
   render() {
     return(
-      <div>
+      <div className="movie-index">
         {this.renderIndex()}
       </div>
     );
