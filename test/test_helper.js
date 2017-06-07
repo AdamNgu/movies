@@ -36,11 +36,6 @@ $.fn.simulate = function(eventName, value) {
   TestUtils.Simulate[eventName](this[0]);
 }
 
-// Helper for simulating a click
-$.fn.click = function() {
-  TestUtils.Simulate.click(this[0]);
-}
-
 
 // Set up chai-jquery
 chaiJquery(chai, chai.util, $);
