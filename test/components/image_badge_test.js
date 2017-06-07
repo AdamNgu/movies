@@ -5,13 +5,21 @@ describe('ImageBadge', () => {
   let component;
 
   beforeEach(() => {
-    const props = { width: "100px", height: "150px", image: "placeholderData" };
+    const props = { width: "100px", height: "150px", image: "placeholderURL" };
     const state = {movies: []}
     component = renderComponent(ImageBadge, props, state);
   });
 
-  it('shows an image', () => {
+  it('is an image element', () => {
     expect(component).to.match('img');
+  });
+
+  it('contains the class image-badge', () => {
+    expect(component).to.have.class('image-badge');
+  });
+
+  it('shows the correct image', () => {
+    expect(component).to.have.attr('src', "placeholderURL");
   });
 
   it('contains the correct maxWidth and maxHeight', () => {
